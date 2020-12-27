@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { classToClass } from 'class-transformer';
 
 import CreateUserService from '@modules/users/services/CreateUserService';
 
@@ -24,6 +25,6 @@ export default class SessionsController {
       updated_at: user.updated_at,
     };
 
-    return response.json(userWithoutPassword);
+    return response.json(classToClass(user));
   }
 }
