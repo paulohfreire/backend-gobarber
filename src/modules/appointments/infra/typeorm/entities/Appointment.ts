@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import User from '@modules/users/infra/typeorm/entities/User';
 
 @Entity('appointments')
@@ -10,14 +18,14 @@ class Appointment {
   provider_id: string;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: 'provider_id'})
+  @JoinColumn({ name: 'provider_id' })
   provider: User;
 
   @Column()
   user_id: string;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: 'user_id'})
+  @JoinColumn({ name: 'user_id' })
   user: User;
 
   @Column('timestamp with time zone')
